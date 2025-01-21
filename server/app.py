@@ -10,15 +10,19 @@ def index():
     return "<h1>Python Operations with Flask Routing and Views</h1>"
 
 # Print string route
-@app.route('/print/<string:param>')
-def print_string(param):
-    print(param) 
-    return param  
+@app.route('/print/<string:parameter>')
+def print_string(parameter):
+    print(parameter)
+    return parameter
+
 
 # Count route
-@app.route('/count/<int:param>')
-def count(param):
-    return "\n".join(str(i) for i in range(param))
+@app.route('/count/<int:parameter>')
+def count(parameter):
+    numbers = range(parameter)
+    result = "\n".join(str(number) for number in numbers)
+    return result
+
 
 # Math route
 @app.route('/math/<int:num1>/<string:operation>/<int:num2>')
